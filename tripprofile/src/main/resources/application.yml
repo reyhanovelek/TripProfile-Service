@@ -1,0 +1,36 @@
+server:
+  port: 9092
+  servlet:
+    context-path: /tripprofile
+
+spring:
+  application:
+    name: tripprofile
+  datasource:
+    url: jdbc:postgresql://localhost:5432/app
+    username: app
+    password: app
+  jpa:
+    hibernate:
+      ddl-auto: validate   # Şemayı Flyway yönetecek
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+  endpoint:
+    health:
+      show-details: never
+
+logging:
+  level:
+    org.hibernate.SQL: INFO
+    org.springframework.jdbc.core: INFO
