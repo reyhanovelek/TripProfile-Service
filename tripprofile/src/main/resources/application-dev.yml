@@ -1,0 +1,33 @@
+server:
+  port: 9092
+  servlet:
+    context-path: /tripprofile
+
+spring:
+  application:
+    name: tripprofile
+
+  datasource:
+    url: jdbc:postgresql://127.0.0.1:15432/app
+    username: app
+    password: app
+
+  jpa:
+    open-in-view: false
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        format_sql: true
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    url: jdbc:postgresql://127.0.0.1:15432/app
+    user: app
+    password: app
+
+logging:
+  level:
+    org.flywaydb: INFO
+    com.zaxxer.hikari: INFO

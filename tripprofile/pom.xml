@@ -1,14 +1,15 @@
+
 <project xmlns="http://maven.apache.org/POM/4.0.0"
 		 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<!-- Spring Boot parent: versiyonları merkezi yönetir -->
+	<!-- Spring Boot parent: centrally manages dependency versions -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.3.4</version>
-		<relativePath/> <!-- lookup parent from repository -->
+		<relativePath/>
 	</parent>
 
 	<groupId>com.tripwise</groupId>
@@ -19,6 +20,8 @@
 
 	<properties>
 		<java.version>17</java.version>
+		<flyway.version>10.10.0</flyway.version>
+		<postgres.version>42.7.4</postgres.version>
 	</properties>
 
 	<dependencies>
@@ -50,26 +53,26 @@
 		<dependency>
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
+			<version>${postgres.version}</version>
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- Flyway (sürümü Boot yönetir, versiyon yazma) -->
+		<!-- Flyway -->
 		<dependency>
 			<groupId>org.flywaydb</groupId>
 			<artifactId>flyway-core</artifactId>
+			<version>${flyway.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-database-postgresql</artifactId>
+			<version>${flyway.version}</version>
 		</dependency>
 
 		<!-- Actuator -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-actuator</artifactId>
-		</dependency>
-
-		<!-- Lombok (opsiyonel) -->
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<optional>true</optional>
 		</dependency>
 
 		<!-- Test -->

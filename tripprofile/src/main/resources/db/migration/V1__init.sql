@@ -1,0 +1,9 @@
+CREATE TABLE IF NOT EXISTS user_profile (
+    id BIGSERIAL PRIMARY KEY,
+    user_id VARCHAR(100) NOT NULL UNIQUE,
+    name VARCHAR(100) NOT NULL,
+    avatar_url VARCHAR(255),
+    locale VARCHAR(10) DEFAULT 'en-US',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
