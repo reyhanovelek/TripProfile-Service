@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 @RestController
-@RequestMapping("/tripprofile")
+@RequestMapping
 public class UserProfileController {
 
     private final UserProfileService service;

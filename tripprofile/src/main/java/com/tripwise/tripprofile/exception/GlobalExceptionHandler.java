@@ -43,8 +43,14 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<Map<String, Object>> handleOther(Exception ex, HttpServletRequest req) {
-        return body(HttpStatus.INTERNAL_SERVER_ERROR, "INTERNAL_ERROR", "Unexpected error", req.getRequestURI());
+        //fast solution
+        ex.printStackTrace();
+
+        //  it shows postman answers clearly
+        String msg = ex.getClass().getName() + ": " + (ex.getMessage() == null ? "<no message>" : ex.getMessage());
+        return body(HttpStatus.INTERNAL_SERVER_ERROR, "INTERNAL_ERROR", msg, req.getRequestURI());
     }
+
 
     private ResponseEntity<Map<String, Object>> body(HttpStatus status, String code, String message, String path) {
         Map<String, Object> m = new HashMap<>();
