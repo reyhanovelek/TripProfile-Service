@@ -96,13 +96,16 @@ Localhost → http://localhost:9092/tripprofile
 
 Dockerized → https://tripwise:9092/tripprofile
 
-🌐 API Endpoints
-Method	Endpoint	Auth	Description
-PUT	/me	✅	Create or update user profile
-GET	/me	✅	Read back current user profile
-PUT	/me (400)	✅	Validation error on bad payload
-GET	/me (404)	✅	Profile not found
-GET	/actuator/health	❌	Health check endpoint
+## 🌐 API Endpoints
+
+| Method | Endpoint             | Auth | Description                         |
+|-------:|----------------------|:----:|-------------------------------------|
+| PUT    | `/me`                | ✅   | Create or update user profile       |
+| GET    | `/me`                | ✅   | Read back current user profile      |
+| PUT    | `/me` *(400)*        | ✅   | Validation error on bad payload     |
+| GET    | `/me` *(404)*        | ✅   | Profile not found                   |
+| GET    | `/actuator/health`   | ❌   | Health check endpoint               |
+
 
 🔗 Integration Map (TripWise Microservices)
 TripHub → API Gateway
