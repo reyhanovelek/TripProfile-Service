@@ -73,11 +73,12 @@ tripprofile/
     ├── application.yml
     ├── application-dev.yml
     └── application-docker.yml
-⚙️ Environment Configurations
-Example .env file:
+    
+## ⚙️ Environment Configurations
 
-properties
-Copy code
+Example `.env` file:
+
+```properties
 #-------------------------------------------
 # TripProfile Configuration
 #-------------------------------------------
@@ -85,26 +86,26 @@ SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/tripprofile
 SPRING_DATASOURCE_USERNAME=postgres
 SPRING_DATASOURCE_PASSWORD=postgres
 JWT_SECRET=your_jwt_secret_from_TripPass
+
 🐳 Run with Docker
-bash
-Copy code
+
 docker build -t tripprofile .
 docker run -p 9092:9092 tripprofile
+
 Service will be available at:
-
 Localhost → http://localhost:9092/tripprofile
-
 Dockerized → https://tripwise:9092/tripprofile
 
-## 🌐 API Endpoints
 
-| Method | Endpoint             | Auth | Description                         |
-|-------:|----------------------|:----:|-------------------------------------|
-| PUT    | `/me`                | ✅   | Create or update user profile       |
-| GET    | `/me`                | ✅   | Read back current user profile      |
-| PUT    | `/me` *(400)*        | ✅   | Validation error on bad payload     |
-| GET    | `/me` *(404)*        | ✅   | Profile not found                   |
-| GET    | `/actuator/health`   | ❌   | Health check endpoint               |
+🌐 API Endpoints
+
+| Method | Endpoint           | Auth | Description                     |
+| -----: | ------------------ | :--: | ------------------------------- |
+|    PUT | `/me`              |   ✅  | Create or update user profile   |
+|    GET | `/me`              |   ✅  | Read back current user profile  |
+|    PUT | `/me` *(400)*      |   ✅  | Validation error on bad payload |
+|    GET | `/me` *(404)*      |   ✅  | Profile not found               |
+|    GET | `/actuator/health` |   ❌  | Health check endpoint           |
 
 
 🔗 Integration Map (TripWise Microservices)
