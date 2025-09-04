@@ -1,10 +1,15 @@
-# 🧑‍💼 TripProfile (User Profile Service - Microservice 2)
+# 🙋 TripProfile (User Profile Service - Microservice 2)
+
+[![Java](https://img.shields.io/badge/Java-17-blue.svg)](#)
+[![Spring Boot](https://img.shields.io/badge/Spring%20Boot-3.x-brightgreen.svg)](#)
+[![Build](https://img.shields.io/badge/Build-Maven-orange.svg)](#)
+[![Docker](https://img.shields.io/badge/Docker-ready-2496ED.svg)](#)
 
 ---
 
-🔗 [TripWise-Architecture 🍀 Overview Repository](#)
+### 🔗 [TripWise-Architecture 🍀 Overview Repository ](https://github.com/Ochwada/TripWise-Architecture)
 
-**Microservices ⬇️ part of TripWise System**
+Microservices ⬇️ part of **TripWise System**
 
 - 🖇️ Microservice 0: [TripHub - Gateway Service](#)
 - 🖇️ Microservice 1: [TripPass - Authentication Service](#)
@@ -38,40 +43,45 @@ Developed with **Java 17+, Spring Boot 3, and PostgreSQL**, this service ensures
 
 ## 🛠 Tech Stack
 
-- Java 17
-- Spring Boot 3
-- Maven
-- PostgreSQL (relational persistence)
-- Docker
+- **Java 17**
+- **Spring Boot 3**
+- **Maven**
+- **PostgreSQL** (relational persistence)
+- **Docker**
 
 ---
 
 ## 📂 Project Structure
 
+```
 tripprofile/
 ├── pom.xml
-├── src/main/java/com/tripwise/tripprofile/
-│ ├── TripprofileApplication.java # Main entrypoint
-│ ├── config/
-│ │ └── SecurityConfig.java # Security configuration
-│ ├── controller/
-│ │ └── UserProfileController.java # REST API endpoints
-│ ├── dto/
-│ │ ├── UpsertProfileRequest.java # DTO for update/create
-│ │ └── UserProfileResponse.java # DTO for responses
-│ ├── exception/
-│ │ └── GlobalExceptionHandler.java # Centralized exception handling
-│ ├── model/
-│ │ └── UserProfile.java # User profile entity
-│ ├── repository/
-│ │ └── UserProfileRepository.java # PostgreSQL JPA repository
-│ └── service/
-│ └── UserProfileService.java # Business logic
-│
-└── src/main/resources/
-├── application.yml
-├── application-dev.yml
-└── application-docker.yml
+├── src/
+│   └── main/
+│       ├── java/com/tripwise/tripprofile/
+│       │   ├── TripprofileApplication.java     # Main entrypoint
+│       │   ├── config/
+│       │   │   └── SecurityConfig.java         # Security configuration
+│       │   ├── controller/
+│       │   │   └── UserProfileController.java  # REST API endpoints
+│       │   ├── dto/
+│       │   │   ├── UpsertProfileRequest.java   # DTO for update/create
+│       │   │   └── UserProfileResponse.java    # DTO for responses
+│       │   ├── exception/
+│       │   │   └── GlobalExceptionHandler.java # Centralized exception handling
+│       │   ├── model/
+│       │   │   └── UserProfile.java            # User profile entity
+│       │   ├── repository/
+│       │   │   └── UserProfileRepository.java  # PostgreSQL JPA repository
+│       │   └── service/
+│       │       └── UserProfileService.java     # Business logic
+│       └── resources/
+│           ├── application.yml
+│           ├── application-dev.yml
+│           └── application-docker.yml
+└── README.md
+
+```
 
 ## ⚙️ Environment Configurations
 
@@ -85,30 +95,39 @@ These credentials are used to configure the TripProfile service with PostgreSQL 
 #-------------------------------------------
 # TripProfile Configuration
 #-------------------------------------------
+SERVER_PORT=9092
+SPRING_PROFILES_ACTIVE=dev
+
+# Database
 SPRING_DATASOURCE_URL=jdbc:postgresql://localhost:5432/tripprofile
 SPRING_DATASOURCE_USERNAME=postgres
 SPRING_DATASOURCE_PASSWORD=postgres
 JWT_SECRET=your_jwt_secret_from_TripPass
 
-### 📑 Variable Reference
+```
 
-| Variable                  | Description                   | Where to Get It / Notes                          |
-|---------------------------|-------------------------------|--------------------------------------------------|
-| `SPRING_DATASOURCE_URL`   | JDBC URL for PostgreSQL       | Local/Postgres container connection              |
-| `SPRING_DATASOURCE_USERNAME` | Database username          | Usually `postgres`                               |
-| `SPRING_DATASOURCE_PASSWORD` | Database password          | Same as local/Postgres setup                     |
-| `JWT_SECRET`              | Secret key for JWT validation | Must match TripPass configuration                |
+📑 Variable Reference
+
+| Variable                     | Description                   | Where to Get It / Notes             |
+| ---------------------------- | ----------------------------- | ----------------------------------- |
+| `SPRING_DATASOURCE_URL`      | JDBC URL for PostgreSQL       | Local/Postgres container connection |
+| `SPRING_DATASOURCE_USERNAME` | Database username             | Usually `postgres`                  |
+| `SPRING_DATASOURCE_PASSWORD` | Database password             | Same as local/Postgres setup        |
+| `JWT_SECRET`                 | Secret key for JWT validation | Must match TripPass configuration   |
+
+```
 
 🐳 Run with Docker
 
 docker build -t tripprofile .
 docker run -p 9092:9092 tripprofile
 
-
 Service will be available at:
 
-Localhost → http://localhost:9092/tripprofile
-Dockerized → https://tripwise:9092/tripprofile
+Localhost: http://localhost:9092/tripprofile
+Dockerized: https://tripwise:9092/tripprofile
+
+```
 
 🌐 API Endpoints
 
@@ -132,6 +151,3 @@ Dockerized → https://tripwise:9092/tripprofile
 | TripJournal | Journals, memories, notes                     |
 | TripWeather | Weather forecasts for trips                   |
 | TripMedia   | Media and profile avatars                     |
-
-
-
